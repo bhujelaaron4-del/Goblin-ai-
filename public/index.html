@@ -607,6 +607,119 @@ header.bar .face { border-radius:12px; }
 #steps i.done,#steps i.now { background:#91d6a4; }
 @media (max-width:430px) { #login .face { width:92px;height:92px; } }
 
+
+/* ---------- Goblin minimal login refresh ---------- */
+#login {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100svh;
+  padding: 44px 22px;
+  gap: 13px;
+  background:
+    radial-gradient(ellipse at 50% 28%, rgba(105, 164, 121, .13), transparent 42%),
+    radial-gradient(ellipse at 12% 82%, rgba(120, 92, 164, .10), transparent 36%),
+    #080d0a;
+  color: #edf5ee;
+}
+#login::before, #login::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  filter: blur(85px);
+  opacity: .23;
+  pointer-events: none;
+}
+#login::before { background: #5b9c70; top: 4%; left: -210px; }
+#login::after { background: #7960a8; right: -220px; bottom: 2%; }
+#login .face {
+  width: 104px;
+  height: 104px;
+  margin: 0 0 8px;
+  border-radius: 30px;
+  object-fit: cover;
+  border: 1px solid rgba(190, 226, 197, .28);
+  box-shadow: 0 0 0 8px rgba(150, 205, 161, .035), 0 18px 55px rgba(0,0,0,.45), 0 0 42px rgba(116,184,132,.16);
+}
+#login h1 {
+  color: #f0f7f0;
+  font-family: var(--sans);
+  font-size: clamp(30px, 7vw, 39px);
+  font-weight: 650;
+  letter-spacing: -.055em;
+  line-height: 1.05;
+}
+#login > p {
+  color: #9eafa2;
+  font-size: 13px;
+  letter-spacing: .025em;
+  margin: 0 0 12px;
+}
+#loginForm {
+  width: min(360px, 100%);
+  gap: 12px;
+  padding: 22px;
+  border-radius: 23px;
+  border: 1px solid rgba(176, 211, 183, .16);
+  background: linear-gradient(145deg, rgba(24, 34, 27, .88), rgba(13, 19, 15, .94));
+  box-shadow: 0 24px 80px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.045);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+#loginForm .field {
+  min-height: 49px;
+  padding: 13px 15px;
+  border-radius: 13px;
+  color: #eff7f0;
+  background: rgba(4, 10, 6, .68);
+  border: 1px solid rgba(173, 207, 180, .18);
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+#loginForm .field::placeholder { color: #718276; }
+#loginForm .field:focus {
+  outline: none;
+  border-color: rgba(151, 213, 164, .72);
+  background: rgba(7, 15, 9, .9);
+  box-shadow: 0 0 0 3px rgba(133, 196, 147, .11);
+}
+#loginForm .primary {
+  min-height: 49px;
+  border-radius: 13px;
+  color: #0b160e;
+  background: linear-gradient(110deg, #b5e3bd, #83c996);
+  font-weight: 700;
+  letter-spacing: .01em;
+  box-shadow: 0 8px 24px rgba(91, 167, 108, .17);
+  transition: transform .18s, filter .18s, box-shadow .18s;
+}
+#loginForm .primary:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: 0 11px 28px rgba(91, 167, 108, .24);
+}
+#loginForm .primary:active { transform: translateY(0); }
+#loginForm #stepTag { color: #a6c8ad; }
+#loginForm #stepQ { color: #edf5ee; }
+#loginForm #steps i { background: rgba(177, 207, 181, .16); }
+#loginForm #steps i.done, #loginForm #steps i.now {
+  background: #9bd6a7;
+  box-shadow: 0 0 12px rgba(142, 213, 155, .3);
+}
+#loginForm #stepBack { color: #a4b3a7; }
+#loginForm #stepBack:hover { color: #e8f3e9; }
+#loginMsg { color: #f0a49a; }
+@media (max-width: 430px) {
+  #login { padding: 30px 18px; }
+  #login .face { width: 92px; height: 92px; border-radius: 26px; }
+  #loginForm { padding: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #loginForm *, #loginForm *::before, #loginForm *::after { transition: none !important; animation: none !important; }
+}
+
 </style>
 </head>
 <body>
