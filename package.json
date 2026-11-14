@@ -1,0 +1,9 @@
+{
+  "name": "goblin-ai",
+  "version": "2.0.0",
+  "private": true,
+  "description": "A password-protected personal AI assistant with memory that runs on free services",
+  "engines": {
+    "node": ">=18"
+  }
+}
