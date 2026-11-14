@@ -159,7 +159,7 @@ In Vercel, open your project, then **Settings > Environment Variables**, and add
 | Name | What it does |
 |---|---|
 | `ASSISTANT_PROMPT` | Tells the assistant who it is. Example: `Your name is Goblin AI. You are my study helper. Explain things simply and quiz me.` (If you set this, include the name again. Memory and app rules are added for you.) |
-| `GEMINI_MODEL` | Which Gemini model to use. The built-in default is `gemini-2.5-flash`, but Google now only serves it to projects that already used it. If Goblin says "Gemini does not know the model", set this to `gemini-3.8-flash` (or `gemini-3.5-flash-lite` if that one is slow or runs out). Google changes its free models often. You can see yours at https://aistudio.google.com/rate-limit |
+| `GEMINI_MODEL` | Which Gemini model to use. Recommended: `gemini-3.8-flash` for stronger reasoning, coding and multimodal chat. If your API key or free-tier quota does not allow it, try `gemini-3.5-flash-lite` as a lighter alternative. Check the models available to your project in Google AI Studio. |
 
 After you change a variable, go to **Deployments**, open the latest one, and choose **Redeploy**.
 
