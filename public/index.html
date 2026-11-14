@@ -720,6 +720,133 @@ header.bar .face { border-radius:12px; }
   #loginForm *, #loginForm *::before, #loginForm *::after { transition: none !important; animation: none !important; }
 }
 
+
+/* ---------- Goblin AI: moonlit forest login ---------- */
+#login {
+  min-height: 100svh;
+  padding: 42px 22px 34px;
+  gap: 12px;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(29, 89, 49, .22), transparent 36%),
+    radial-gradient(ellipse at 4% 88%, rgba(36, 103, 57, .20), transparent 32%),
+    radial-gradient(ellipse at 100% 78%, rgba(20, 74, 40, .18), transparent 34%),
+    linear-gradient(180deg, #050906 0%, #07110a 58%, #030705 100%);
+  color: #eff8ef;
+}
+#login::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: auto -12% -4% -12%;
+  height: 38%;
+  border-radius: 50% 50% 0 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(76, 154, 91, .20), transparent 58%),
+    linear-gradient(180deg, rgba(12, 35, 19, .12), rgba(2, 7, 4, .96));
+  filter: blur(18px);
+  opacity: .95;
+}
+#login::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  opacity: .38;
+  background:
+    radial-gradient(1px 1px at 18% 22%, #a9e6b1 98%, transparent),
+    radial-gradient(1px 1px at 76% 17%, #a9e6b1 98%, transparent),
+    radial-gradient(1px 1px at 84% 62%, #a9e6b1 98%, transparent),
+    radial-gradient(1px 1px at 28% 72%, #a9e6b1 98%, transparent);
+}
+#login .face {
+  width: 104px;
+  height: 104px;
+  margin: 0 0 3px;
+  border-radius: 30px;
+  border: 1px solid rgba(155, 225, 166, .34);
+  box-shadow: 0 0 0 8px rgba(111, 202, 130, .035),
+              0 0 42px rgba(82, 185, 105, .22),
+              0 18px 48px rgba(0, 0, 0, .58);
+}
+#login h1 {
+  color: #f2f7ef;
+  font-family: var(--serif);
+  font-size: clamp(38px, 7vw, 48px);
+  font-weight: 600;
+  letter-spacing: -.045em;
+  line-height: 1.05;
+  text-shadow: 0 3px 28px rgba(112, 209, 132, .13);
+}
+#login h1::after {
+  content: " AI";
+  color: #8ed69b;
+}
+#login > p {
+  color: #b4c7b7;
+  font-size: 13px;
+  letter-spacing: .035em;
+  margin: 0 0 13px;
+}
+#loginForm {
+  width: min(360px, 100%);
+  gap: 12px;
+  padding: 22px;
+  border-radius: 25px;
+  border: 1px solid rgba(161, 211, 169, .20);
+  background: linear-gradient(145deg, rgba(15, 28, 19, .88), rgba(7, 14, 9, .94));
+  box-shadow: 0 26px 80px rgba(0,0,0,.58),
+              inset 0 1px 0 rgba(255,255,255,.045),
+              0 0 36px rgba(60, 137, 77, .08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+#loginForm .field {
+  min-height: 50px;
+  padding: 13px 16px;
+  border-radius: 999px;
+  color: #f0f8f1;
+  background: rgba(2, 8, 4, .72);
+  border: 1px solid rgba(176, 215, 181, .24);
+}
+#loginForm .field::placeholder { color: #829987; }
+#loginForm .field:focus {
+  outline: none;
+  border-color: rgba(145, 220, 157, .8);
+  box-shadow: 0 0 0 3px rgba(118, 204, 135, .12);
+}
+#loginForm .primary {
+  min-height: 49px;
+  border-radius: 999px;
+  color: #07140a;
+  background: linear-gradient(105deg, #b7edbf, #71c985);
+  font-weight: 750;
+  letter-spacing: .01em;
+  box-shadow: 0 8px 26px rgba(86, 190, 108, .23),
+              inset 0 1px 0 rgba(255,255,255,.4);
+}
+#loginForm .primary span { padding-left: 5px; }
+#loginForm .primary:hover { filter: brightness(1.07); transform: translateY(-1px); }
+#loginForm #stepTag { color: #a8d7b0; }
+#loginForm #stepQ { color: #edf7ee; }
+#loginForm #steps i { background: rgba(177, 207, 181, .16); }
+#loginForm #steps i.done, #loginForm #steps i.now {
+  background: #91d9a0;
+  box-shadow: 0 0 12px rgba(142, 213, 155, .3);
+}
+#loginForm #stepBack { color: #a8bbaa; }
+#loginMsg { color: #f0a49a; }
+@media (max-width: 430px) {
+  #login { padding: 30px 18px; }
+  #login .face { width: 92px; height: 92px; border-radius: 27px; }
+  #loginForm { padding: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #loginForm .primary { transition: none; }
+}
+
 </style>
 </head>
 <body>
@@ -727,13 +854,13 @@ header.bar .face { border-radius:12px; }
 <main id="login" hidden>
   <img class="face" src="/avatar.png" alt="">
   <h1>Goblin AI</h1>
-  <p id="loginIntro">Private. Only you can come in.</p>
+  <p id="loginIntro">Your personal AI assistant</p>
   <form id="loginForm" class="loading">
     <div id="steps" aria-hidden="true"></div>
     <p id="stepTag"></p>
     <p id="stepQ" hidden></p>
-    <input class="field" id="password" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password" required>
-    <button class="primary" id="loginBtn" type="submit">Log in</button>
+    <input class="field" id="password" type="password" autocomplete="current-password" placeholder="Enter Password" aria-label="Password" required>
+    <button class="primary" id="loginBtn" type="submit">Enter Goblin <span aria-hidden="true">→</span></button>
     <button id="stepBack" type="button" hidden>Back</button>
     <p id="loginMsg" role="alert"></p>
   </form>
