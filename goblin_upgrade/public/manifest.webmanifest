@@ -1,0 +1,29 @@
+{
+  "name": "Goblin AI",
+  "short_name": "Goblin",
+  "description": "Your private assistant that remembers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101713",
+  "theme_color": "#14221A",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
