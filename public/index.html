@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#10141C" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Ghost">
+<meta name="apple-mobile-web-app-title" content="Goblin">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -561,6 +561,52 @@ a.chip.play { text-decoration: none; color: inherit; display: inline-block; }
 #phApp .pbtn { display: block; text-align: center; padding: 12px; border-radius: 12px; border: 1px solid rgba(70,130,255,.5); background: rgba(40,110,255,.16); color: #E6EEFF; font-weight: 700; font-size: 15px; }
 #phApp .pbtn.dim { border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06); }
 #phCode { width: 100%; box-sizing: border-box; padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06); color: #E6EEFF; font-size: 12px; }
+
+/* Goblin visual refresh: quiet, minimal forest-glass aesthetic */
+:root {
+  color-scheme: dark;
+  --bg:#090d0b; --panel:#111a15; --ink:#e9f2ec; --muted:#9aada0;
+  --line:#26382d; --bubble:#1b2b21; --flame:#a6e6b7; --flame-ink:#c5f2d0;
+  --flame-soft:#182b20; --flame-glow:rgba(126,220,155,.22);
+  --danger:#f08e8e; --shadow:0 18px 55px rgba(0,0,0,.38);
+}
+body { background:#090d0b; }
+body::before {
+ content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+ background:radial-gradient(ellipse at 18% 12%,rgba(67,130,83,.18),transparent 38%),
+ radial-gradient(ellipse at 82% 82%,rgba(111,77,148,.12),transparent 34%),
+ linear-gradient(145deg,#090d0b 0%,#0d1510 55%,#0a0d0c 100%) !important;
+}
+.face {
+ background:#14251a url('/avatar.png') center/cover no-repeat !important;
+ border:1px solid rgba(174,232,188,.28);
+ box-shadow:0 0 0 1px rgba(128,201,147,.08),0 8px 24px rgba(0,0,0,.3);
+}
+#login { gap:12px; padding:36px 22px; position:relative; }
+#login .face {
+ width:104px;height:104px;margin:0 auto 4px;border-radius:28px;
+ box-shadow:0 12px 34px rgba(0,0,0,.35),0 0 32px rgba(117,194,139,.12);
+}
+#login h1 { font-family:var(--sans);font-size:29px;font-weight:750;letter-spacing:.13em;text-transform:uppercase;color:#eff8f0; }
+#login p { color:#9bad9f; }
+#loginForm {
+ width:min(360px,100%);padding:22px;border-radius:22px;
+ background:rgba(17,26,21,.82);border:1px solid rgba(155,204,166,.17);
+ box-shadow:0 22px 70px rgba(0,0,0,.38);backdrop-filter:blur(18px);
+}
+.field { background:#0d1510;border-color:#2a3b30;color:#edf6ef; }
+.field:focus { border-color:#8ac99b;box-shadow:0 0 0 3px rgba(138,201,155,.12); }
+.primary { background:#b8e8c3;color:#102016;border-radius:13px;font-weight:750; }
+.primary:hover { filter:brightness(1.06); }
+header.bar .face { border-radius:12px; }
+.bar h1,#empty h2,#stepQ { font-family:var(--sans); }
+#composer .box { background:rgba(17,26,21,.92);border-color:#2b3d31;backdrop-filter:blur(14px); }
+#composer .box:focus-within { border-color:#8ac99b;box-shadow:0 0 0 3px rgba(138,201,155,.12); }
+.chip { background:#1b3022;color:#c5f2d0; }
+#lampBtn.lit { background:#1b3022;color:#c5f2d0; }
+#steps i.done,#steps i.now { background:#91d6a4; }
+@media (max-width:430px) { #login .face { width:92px;height:92px; } }
+
 </style>
 </head>
 <body>
