@@ -155,7 +155,7 @@ function toContents(messages) {
 async function callGemini(body) {
   const key = process.env.GEMINI_API_KEY;
   if (!key) throw new HttpError('GEMINI_API_KEY is missing. Add it in Vercel, then redeploy.', 503);
-  const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+  const model = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), 50000);
   let r;
